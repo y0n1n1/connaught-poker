@@ -33,7 +33,7 @@ export default function Home() {
       <Navbar />
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         {/* Welcome Section */}
-        <div className="poker-card p-6 sm:p-8 mb-6">
+        <div className="luxury-card p-6 sm:p-8 mb-6">
           <div className="flex items-center space-x-3 mb-2">
             <div className="text-3xl">👋</div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white">
@@ -47,7 +47,7 @@ export default function Home() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <Link href="/games/new" className="poker-card p-6 text-center group">
+          <Link href="/games/new" className="luxury-card p-6 text-center group">
             <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform">
               🃏
             </div>
@@ -59,7 +59,7 @@ export default function Home() {
             </p>
           </Link>
 
-          <Link href="/leaderboard" className="poker-card p-6 text-center group">
+          <Link href="/leaderboard" className="luxury-card p-6 text-center group">
             <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform">
               🏆
             </div>
@@ -71,7 +71,7 @@ export default function Home() {
             </p>
           </Link>
 
-          <Link href="/games" className="poker-card p-6 text-center group">
+          <Link href="/games" className="luxury-card p-6 text-center group">
             <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform">
               🎮
             </div>
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
 
         {/* Stats Overview */}
-        <div className="poker-card p-6 sm:p-8">
+        <div className="luxury-card p-6 sm:p-8">
           <div className="flex items-center space-x-2 mb-6">
             <div className="text-2xl">📊</div>
             <h2 className="text-xl font-bold text-white">Your Stats</h2>

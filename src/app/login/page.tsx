@@ -43,7 +43,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login Form */}
-        <div className="poker-card p-8">
+        <div className="luxury-card p-8">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
               <div className="rounded-lg bg-red-900/20 border border-red-500/50 p-4">

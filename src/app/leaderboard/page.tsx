@@ -43,7 +43,7 @@ export default function LeaderboardPage() {
     <div className="min-h-screen">
       <Navbar />
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="poker-card overflow-hidden">
+        <div className="luxury-card overflow-hidden">
           {/* Header */}
           <div className="px-4 sm:px-6 py-6 border-b border-[#2d3748]">
             <div className="flex items-center space-x-3">
