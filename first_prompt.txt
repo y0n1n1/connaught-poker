@@ -1,0 +1,18 @@
+ we will create a gh repo and start a web app typescript shadcn ui tailwind rest api railway backend deploy vercel frontend deploy (not sure which db to     
+  use yet) project. the project will be a simple web app to track me and my friends poker games in our dorm. we will have around 20 active users max,         
+  and keep very little data (just small stuff like tracking who bought in to what games, who won, etc). our goal is to have fun features like a               
+  leaderboard, a user's cumulative winnings, etc. would also be cool to have a feature to help our game host (filipo) to track who sent him buyins and        
+  who still has to send, etc. the only inputs we will ever have are from each player/user. we will publicly display buyin info since filipo isn't always      
+  the host. since this is pretty non-serious information we don't mind if the leaderboard is publicly visible, etc, but only each player can check their      
+  account info privately, and choose what to display on their public profiles (e.g. i might want to display my cumulative winnings publicly but another       
+  player might not). we also need simple history/logging for each player and for games as a whole. i expect the db to only need: games table, users           
+  table. let me know if any of my ideas here are faulty and we should change. for now don't implement anything yet, we will just plan using markdown          
+  files. once we start implementing, I want to work from the back up: db, then backend server, then frontend. I want to use next, node, prisma for db. 
+
+
+  ❯ for auth lets do simple username password. lets also have a quick mechanism for forget passwords where I verify login (like when a friend forgets           
+  password i'll just ask them what new password they want and set it myself, would be nice if I could set it myself from my account on the frontend).         
+  since we have the same 20 or so people playing always, the game host should have an easy list style add method, where they pick out people's names from     
+  a list. we could also have a simple click link to join game system, that the host can share. results for a game can be entered by either the host for       
+  any player or by a player for their own info (a player can enter whether they bought in, etc, but not whether someone else bought in, but a host can        
+  enter for anyone). privacy settings all fields should be toggleable. I like your docs approach, keep going.   

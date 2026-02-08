@@ -1,0 +1,96 @@
+// Connaught Poker Database Schema
+// PostgreSQL database for tracking poker games
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Enums
+enum GameStatus {
+  UPCOMING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  PENDING
+}
+
+// Models
+
+model User {
+  id          String   @id @default(cuid())
+  username    String   @unique
+  passwordHash String
+  displayName String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isAdmin     Boolean  @default(false)
+
+  // Privacy settings
+  showTotalWinnings      Boolean @default(true)
+  showGameHistory        Boolean @default(true)
+  showIndividualResults  Boolean @default(true)
+
+  // Relations
+  hostedGames  Game[]       @relation("GameHost")
+  buyins       Buyin[]
+  gameResults  GameResult[]
+
+  @@map("users")
+}
+
+model Game {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  gameDate  DateTime
+  hostId    String
+  host      User       @relation("GameHost", fields: [hostId], references: [id])
+  status    GameStatus @default(UPCOMING)
+  joinCode  String?    @unique
+  notes     String?
+
+  // Relations
+  buyins      Buyin[]
+  gameResults GameResult[]
+
+  @@map("games")
+}
+
+model Buyin {
+  id         String        @id @default(cuid())
+  gameId     String
+  game       Game          @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User          @relation(fields: [userId], references: [id])
+  amount     Float
+  paidStatus PaymentStatus @default(UNPAID)
+  timestamp  DateTime      @default(now())
+  enteredBy  String        // userId of who entered this record
+
+  @@index([gameId, userId])
+  @@map("buyins")
+}
+
+model GameResult {
+  id          String   @id @default(cuid())
+  gameId      String
+  game        Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  finalAmount Float
+  netWinnings Float
+  timestamp   DateTime @default(now())
+  enteredBy   String   // userId of who entered this record
+
+  @@unique([gameId, userId])
+  @@index([userId])
+  @@map("game_results")
+}
